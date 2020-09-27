@@ -1,19 +1,15 @@
 #!/bin/bash
 #
 # srovnání adresářů /jpg a /pef
-#
-# TODO smazat jpg
+# a smazání jpg, co nejsou v /pef
+# 
 # TOTO --dry-run
 #
 
-pwd
-
 for file in ./jpg/*.jpg
 do
-   echo $file
-   echo ./pef/$(basename ${file%%jpg})pef
    if [[ ! -e ./pef/$(basename ${file%%jpg})pef ]]; then
-      echo $file SMAZAT
+      rm $file
+      echo $file SMAZAN
    fi
-   echo
 done
